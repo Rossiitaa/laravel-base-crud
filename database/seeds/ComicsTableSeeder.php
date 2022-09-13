@@ -3,7 +3,7 @@
 use App\Comic;
 use Illuminate\Database\Seeder;
 
-class ComicsSeeder extends Seeder
+class ComicsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
