@@ -1,33 +1,40 @@
 @extends('layouts.main')
 
-@section('title', 'index')
+@section('title', 'Index')
 
 @section('content')
-    <h1>Comics</h1>
-    <ul>
-        @foreach ($comics as $comic)
-            <li>
-                {{ $comic->title }}   
-            </li>
-            <li>
-                {{ $comic->description }}
-            </li>
-            <li>
-                {{ $comic->thumb }}
-            </li>
-            <li>
-                {{ $comic->price }}
-            </li>
-            <li>
-                {{ $comic->series }}
-            </li>
-            <li>
-                {{ $comic->sale_date }}
-            </li>
-            <li>
-                {{ $comic->type }}
-            </li>
-            <br>
-        @endforeach
-    </ul>
+    <div class="container">
+        <div class="row">
+            <h3 class="mb-4">Comics:</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th colspan="2">Title</th>
+                            <th>Price</th>
+                            <th>Series</th>
+                            <th>Sale Date</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($comics as $comic)
+                            <tr>
+                                <td>{{$comic->id}}</td>
+                                <td colspan="2">{{$comic->title}}</td>
+                                <td>{{$comic->price}}</td>
+                                <td>{{$comic->series}}</td>
+                                <td>{{$comic->sale_date}}</td>
+                                <td>{{$comic->type}}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7">No comics found</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+        </div>
+        
+    </div>
 @endsection
