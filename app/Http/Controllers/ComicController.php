@@ -47,7 +47,7 @@ class ComicController extends Controller
         $comic->sale_date = $sentData['sale_date'];
         $comic->type = $sentData['type'];
         $comic->save();
-        
+
         return redirect()->route('comics.show', $comic->id);
     }
 
@@ -70,7 +70,8 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic = Comic::FindOrFail($id);
+        return view('comics.edit', compact('comic'));
     }
 
     /**

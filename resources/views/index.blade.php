@@ -15,6 +15,7 @@
                             <th>Series</th>
                             <th>Sale Date</th>
                             <th>Type</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +27,9 @@
                                 <td>{{$comic->series}}</td>
                                 <td>{{$comic->sale_date}}</td>
                                 <td>{{$comic->type}}</td>
+                                <td>
+                                    <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary">Edit</a>
+                                </td>
                             </tr>
                         @empty
                             <tr>

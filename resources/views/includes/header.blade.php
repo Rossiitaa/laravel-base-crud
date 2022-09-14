@@ -10,7 +10,7 @@
                     <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : ''}}" aria-current="page" href="{{route('home.index')}}">Home</a>
                 </div>
                 <div class="navbar-nav">
-                    <a class="nav-link {{ request()->routeIs('comics.create') ? 'active' : ''}}" aria-current="page" href="{{route('comics.create')}}">New Comic</a>
+                    <a class="nav-link {{ request()->routeIs('comics.create') ? 'active' : ''}}" aria-current="page" href="{{route('comics.create')}}">Add New Comic</a>
                 </div>
             </div>
         </div>
