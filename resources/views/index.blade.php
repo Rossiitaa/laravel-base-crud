@@ -5,6 +5,16 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if (session('delete'))
+                <div class="alert alert-danger">
+                    {{ session('delete') }} has been deleted!!
+                </div>                
+            @endif
+            @if (session('update'))
+                <div class="alert alert-success">
+                    {{ session('update') }} has been updated!!
+                </div>
+            @endif
             <h3 class="mb-4">Comics:</h3>
                 <table class="table table-striped">
                     <thead>

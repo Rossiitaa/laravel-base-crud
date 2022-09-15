@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="card text-center col-8 offset-2">
+        @if (session('create'))
+            <div class="alert alert-success">
+                {{ session('create') }} has been created!!
+            </div>
+        @endif
         <div class="card-header">
             COMIC N: {{ $comic->id }}
         </div>
@@ -17,6 +22,18 @@
             <p>SALE DATE : {{$comic->sale_date}}</p>
             <p>SERIES : {{ $comic->series }}</p>
             <p>TYPE : {{ $comic->type }}</p>
+            <div>
+                
+            </div>
+            <div class="text-center">
+                <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary">Edit</a>
+                <form action="{{route('comics.destroy', $comic->id)}}" method="post" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            
         </div>
     </div>
 @endsection

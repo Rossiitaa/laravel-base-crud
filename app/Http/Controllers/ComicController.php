@@ -82,7 +82,7 @@ class ComicController extends Controller
 
         $comic->update($sentData);
 
-        return redirect()->route('comics.show', $comic->id)->with('update', $sentData['title']);
+        return redirect()->route('comics.index')->with('update', $sentData['title']);
     }
 
     /**
