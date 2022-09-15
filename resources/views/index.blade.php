@@ -16,6 +16,7 @@
                             <th>Sale Date</th>
                             <th>Type</th>
                             <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,13 @@
                                 <td>{{$comic->type}}</td>
                                 <td>
                                     <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary">Edit</a>
+                                </td>
+                                <td>
+                                    <form action="{{route('comics.destroy', $comic->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty
