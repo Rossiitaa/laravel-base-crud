@@ -6,8 +6,9 @@
     <div class="container">
         <div class="row">
             <h3 class="mb-4">Create a new comic:</h3>
-            <form action="{{route('comics.store')}}" method="post">
+            <form action="{{route('comics.update', $comic->id)}}" method="post">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" value="{{ $comic->title }}" required>
