@@ -42,7 +42,7 @@
                                     <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="{{route('comics.destroy', $comic->id)}}" method="post">
+                                    <form action="{{route('comics.destroy', $comic->id)}}" method="post" class="rs_delete_form" data-comic-name="{{ $comic->title }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -58,4 +58,21 @@
                 </table>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        const deleteForms = document.querySelectorAll('.rs_delete_form');
+        deleteForms.forEach(form => {
+            form.addEventListener('submit', function(event) {
+
+                const comicName = this.getAttribute('data-comic-name');
+                event.preventDefault();
+                const confirmDelete = confirm(`Are you sure you want to delete ${comicName}?`);
+                if (confirmDelete) {
+                    this.submit();
+                }
+            });
+        });
+    </script>
 @endsection
